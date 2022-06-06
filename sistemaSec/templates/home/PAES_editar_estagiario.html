@@ -1,0 +1,116 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Partiu Estagio {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ Padrao do HEADER da pagina] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Estagiários</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'dashboard_partiu_estagio' %}">DashBoard</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'editar_estagiario_partiu_estagio' estagiario.cpf_estagiario %}">Editar Estagiário</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [  Padrao do HEADER da pagina ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Hello card</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="{% url 'atualizar_estagiario_partiu_estagio' %}" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group" >
+                                            <label>Nome do Estagiario</label>
+                                            <input type="text" class="form-control" name="nome_estagiario" placeholder="nome_estagiario" value="{{estagiario.nome_estagiario}}">
+                                            
+                                            <label>CPF</label>
+                                            <input type="text" class="form-control" name="cpf" placeholder="CPF" value="{{estagiario.cpf_estagiario}}">
+                                            
+                                            <label>RG</label>
+                                            <input type="text" class="form-control" name="rg" placeholder="rg" value="{{estagiario.rg_estagiario}}">
+                                            
+                                            <label>Turno</label>
+                                            <input type="text" class="form-control" name="turno" placeholder="turno" value="{{estagiario.turno_estagiario}}">
+                                            
+                                            <label>Email</label>
+                                            <input type="text" class="form-control" name="email" placeholder="email" value="{{estagiario.email_estagiario}}">
+                                            
+                                            <label>Semestre</label>
+                                            <input type="text" class="form-control" name="semestre" placeholder="semestre" value="{{estagiario.semestre_estagiario}}">
+                                            
+                                            <label>Nis</label>
+                                            <input type="text" class="form-control" name="nis" placeholder="nis" value="{{estagiario.nis_pis_estagiario}}">
+                                            
+                                            <label>telefone</label>
+                                            <input type="text" class="form-control" name="telefone" placeholder="telefone" value="{{estagiario.telefone_estagiario}}">
+                                            
+                                            <label>responsavel</label>
+                                            <input type="text" class="form-control" name="responsavel" placeholder="responsavel" value="{{estagiario.nome_responsavel_estagiario}}">
+                                            
+                                            <label>nascimento</label>
+                                            <input type="text" class="form-control" name="nascimento" placeholder="nascimento" value="{{estagiario.data_nascimento_estagiario}}">
+                                            
+                                            <label>genero</label>
+                                            <input type="text" class="form-control" name="genero" placeholder="genero" value="{{estagiario.genero_estagiario}}">
+                                            
+                                            <label>raca</label>
+                                            <input type="text" class="form-control" name="raca" placeholder="raca" value="{{estagiario.raca_estagiario}}">
+                                            
+                                            <label>bairro</label>
+                                            <input type="text" class="form-control" name="bairro" placeholder="bairro" value="{{estagiario.bairro_estagiario}}">
+                                            
+                                            <label>numero</label>
+                                            <input type="text" class="form-control" name="numero" placeholder="numero" value="{{estagiario.numero_estagiario}}">
+                                            
+                                            <label>complemento</label>
+                                            <input type="text" class="form-control" name="complemento" placeholder="complemento" value="{{estagiario.complemento_estagiario}}">
+                                            
+                                            <label>Matricula</label>
+                                            <input type="text" class="form-control" name="Matricula" placeholder="Matricula" value="{{estagiario.matricula_estagiario}}">
+                                            
+                                            <label>situaçao</label>
+                                            <input type="text" class="form-control" name="situaçao" placeholder="situação" value="{{estagiario.situacao_estagiario}}">
+                                            
+                                            <label>supervisor</label>
+                                            <input type="text" class="form-control" name="supervisor" placeholder="supervisor" value="{{estagiario.supervisor_estagiario}}">
+                                        
+                                        </div>
+                                        <div  class="form-group"></div>
+                                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+
