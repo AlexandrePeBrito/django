@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sistemaSec.home', 
     'sistemaSec.estagiario',
-    'sistemaSec.supervisor'
+    'sistemaSec.supervisor',
+    'sistemaSec.curso'
 ]
 
 MIDDLEWARE = [
