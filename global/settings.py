@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'sistemaSec.municipio',
     'sistemaSec.sede',
     'sistemaSec.edital',
+    'sistemaSec.estagio',
 ]
 
 MIDDLEWARE = [
