@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'sistemaSec.curso',
     'sistemaSec.faculdade',
     'sistemaSec.nte',
+    'sistemaSec.programa',
+    'sistemaSec.municipio',
 ]
 
 MIDDLEWARE = [
