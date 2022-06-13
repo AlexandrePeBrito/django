@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'sistemaSec.nte',
     'sistemaSec.programa',
     'sistemaSec.municipio',
+    'sistemaSec.sede',
+    'sistemaSec.edital',
 ]
 
 MIDDLEWARE = [
