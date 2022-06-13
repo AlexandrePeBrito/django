@@ -5,6 +5,7 @@ Copyright (c) 2019 - present AppSeed.us
 
 # Create your views here.
 from django.shortcuts import get_object_or_404, render, redirect
+from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -55,14 +56,17 @@ def consultar_estagiario_partiu_estagio(request):
     
     estagiarios = Estagiario.objects.all()
     
+        
     if 'buscar_estagiario_partiu_estagio' in request.GET:
         nome_consulta=request.GET['buscar_estagiario_partiu_estagio']
+        cpf_consulta=request.GET['buscar_estagiario_partiu_estagio']
 
         if consultar_estagiario_partiu_estagio:
-            lista_estagiario = estagiarios.filter(nome_estagiario__icontains=nome_consulta)
+            lista = estagiarios.filter(Q(nome_estagiario__icontains=nome_consulta)|Q(cpf_estagiario__icontains=cpf_consulta))
+            
 
     dados = {
-        "estagiarios": lista_estagiario
+        "estagiarios": lista
     }
 
     return render(request,"home/PAES_buscar_estagiario.html",dados)
