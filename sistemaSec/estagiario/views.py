@@ -59,14 +59,19 @@ def consultar_estagiario_partiu_estagio(request):
         
     if 'buscar_estagiario_partiu_estagio' in request.GET:
         nome_consulta=request.GET['buscar_estagiario_partiu_estagio']
-        cpf_consulta=request.GET['buscar_estagiario_partiu_estagio']
+        cpf_consulta=request.GET['buscar_cpf_estagiario_partiu_estagio']
+        situacao_consulta=request.GET['buscar_situacao_estagiario_partiu_estagio']
+        turno_consulta=request.GET['buscar_turno_estagiario_partiu_estagio']
 
         if consultar_estagiario_partiu_estagio:
-            lista = estagiarios.filter(Q(nome_estagiario__icontains=nome_consulta)|Q(cpf_estagiario__icontains=cpf_consulta))
+            lista_por_nome = estagiarios.filter(Q(nome_estagiario__icontains=nome_consulta))
+            lista_por_cpf = lista_por_nome.filter(Q(cpf_estagiario__icontains=cpf_consulta))
+            lista_por_situacao=lista_por_cpf.filter(Q(situacao_estagiario__icontains=situacao_consulta))
+            lista_por_turno=lista_por_situacao.filter(Q(turno_estagiario__icontains=turno_consulta))
             
 
     dados = {
-        "estagiarios": lista
+        "estagiarios": lista_por_turno
     }
 
     return render(request,"home/PAES_buscar_estagiario.html",dados)
