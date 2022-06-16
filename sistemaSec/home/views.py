@@ -52,3 +52,11 @@ def dashboard_partiu_estagio(request):
         'estagiarios': estagiario
     }
     return render(request, 'home/PAES_dashboard.html',dados)
+
+@login_required(login_url="/login/")
+def dashboard_supervisor(request):
+    supervisor = Supervisor.objects.all()
+    dados ={
+        'supervisores': supervisor
+    }
+    return render(request, 'home/SUPE_dashboard.html',dados)
