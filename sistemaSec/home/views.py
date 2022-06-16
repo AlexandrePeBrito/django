@@ -12,6 +12,7 @@ from django.urls import reverse
 from sistemaSec.estagiario.models import Estagiario
 from sistemaSec.supervisor.models import Supervisor
 from sistemaSec.nte.models import NTE
+from sistemaSec.curso.models import Curso
 
 @login_required(login_url="/login/")
 def index(request):
@@ -68,3 +69,10 @@ def dashboard_nte(request):
     nte = NTE.objects.all()
     dados ={'NTEs': nte}
     return render(request, 'home/NTE_dashboard.html',dados)
+
+
+@login_required(login_url="/login/")
+def dashboard_curso(request):
+    curso = Curso.objects.all()
+    dados ={'cursos': curso}
+    return render(request, 'home/CUSO_dashboard.html',dados)
