@@ -14,6 +14,7 @@ urlpatterns = [
     path('supervisor/dashboard', views.dashboard_supervisor, name='dashboard_supervisor'),
     path('nte/dashboard', views.dashboard_nte, name='dashboard_nte'),
     path('curso/dashboard', views.dashboard_curso, name='dashboard_curso'),
+    path('programa/dashboard', views.dashboard_programa, name='dashboard_programa'),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 ]

@@ -13,6 +13,7 @@ from sistemaSec.estagiario.models import Estagiario
 from sistemaSec.supervisor.models import Supervisor
 from sistemaSec.nte.models import NTE
 from sistemaSec.curso.models import Curso
+from sistemaSec.programa.models import Programa
 
 @login_required(login_url="/login/")
 def index(request):
@@ -76,3 +77,9 @@ def dashboard_curso(request):
     curso = Curso.objects.all()
     dados ={'cursos': curso}
     return render(request, 'home/CUSO_dashboard.html',dados)
+
+@login_required(login_url="/login/")
+def dashboard_programa(request):
+    programa = Programa.objects.all()
+    dados ={'programas': programa}
+    return render(request, 'home/PROG_dashboard.html',dados)

@@ -14,5 +14,6 @@ urlpatterns = [
     path("", include("sistemaSec.supervisor.urls")),
     path("", include("sistemaSec.nte.urls")),
     path("", include("sistemaSec.curso.urls")),
+    path("", include("sistemaSec.programa.urls")),
     path("", include("sistemaSec.home.urls"))            # UI Kits Html files
 ]
