@@ -11,6 +11,7 @@ from django.template import loader
 from django.urls import reverse
 from sistemaSec.estagiario.models import Estagiario
 from sistemaSec.supervisor.models import Supervisor
+from sistemaSec.nte.models import NTE
 
 @login_required(login_url="/login/")
 def index(request):
@@ -60,3 +61,10 @@ def dashboard_supervisor(request):
         'supervisores': supervisor
     }
     return render(request, 'home/SUPE_dashboard.html',dados)
+
+
+@login_required(login_url="/login/")
+def dashboard_nte(request):
+    nte = NTE.objects.all()
+    dados ={'NTEs': nte}
+    return render(request, 'home/NTE_dashboard.html',dados)
