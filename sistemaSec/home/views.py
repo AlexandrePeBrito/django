@@ -14,6 +14,7 @@ from sistemaSec.supervisor.models import Supervisor
 from sistemaSec.nte.models import NTE
 from sistemaSec.curso.models import Curso
 from sistemaSec.programa.models import Programa
+from sistemaSec.faculdade.models import Faculdade
 
 @login_required(login_url="/login/")
 def index(request):
@@ -83,3 +84,9 @@ def dashboard_programa(request):
     programa = Programa.objects.all()
     dados ={'programas': programa}
     return render(request, 'home/PROG_dashboard.html',dados)
+
+@login_required(login_url="/login/")
+def dashboard_faculdade(request):
+    faculdade = Faculdade.objects.all()
+    dados ={'faculdades': faculdade}
+    return render(request, 'home/FACU_dashboard.html',dados)
