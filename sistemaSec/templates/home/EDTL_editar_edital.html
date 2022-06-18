@@ -1,0 +1,71 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Edital {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ Padrao do HEADER da pagina] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Edital</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'dashboard_edital' %}">DashBoard</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'editar_edital' edital.id_edital %}">Editar Edital</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [  Padrao do HEADER da pagina ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Hello card</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="{% url 'atualizar_edital' %}" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group" >
+                                            <label>Codigo do Edital</label>
+                                            <input type="int" class="form-control" name="id_edital" placeholder="Numero do edital" value="{{edital.id_edital}}">
+                                            
+                                            <label>Quantidade de Vagas</label>
+                                            <input type="text" class="form-control" name="quantidade_vagas" placeholder="Quantidade Vagas" value="{{edital.quantidade_vagas_edital}}">
+
+                                            <label>Programa</label>
+                                            <input type="text" class="form-control" name="programa" placeholder="Programa" value="{{edital.id_programa_edital}}">
+                                            
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+

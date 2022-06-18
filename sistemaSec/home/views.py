@@ -15,6 +15,7 @@ from sistemaSec.nte.models import NTE
 from sistemaSec.curso.models import Curso
 from sistemaSec.programa.models import Programa
 from sistemaSec.faculdade.models import Faculdade
+from sistemaSec.edital.models import Edital
 
 @login_required(login_url="/login/")
 def index(request):
@@ -90,3 +91,9 @@ def dashboard_faculdade(request):
     faculdade = Faculdade.objects.all()
     dados ={'faculdades': faculdade}
     return render(request, 'home/FACU_dashboard.html',dados)
+
+@login_required(login_url="/login/")
+def dashboard_edital(request):
+    edital = Edital.objects.all()
+    dados ={'editais': edital}
+    return render(request, 'home/EDTL_dashboard.html',dados)
