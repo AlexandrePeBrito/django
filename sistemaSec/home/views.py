@@ -16,6 +16,7 @@ from sistemaSec.curso.models import Curso
 from sistemaSec.programa.models import Programa
 from sistemaSec.faculdade.models import Faculdade
 from sistemaSec.edital.models import Edital
+from sistemaSec.municipio.models import Municipio
 
 @login_required(login_url="/login/")
 def index(request):
@@ -97,3 +98,9 @@ def dashboard_edital(request):
     edital = Edital.objects.all()
     dados ={'editais': edital}
     return render(request, 'home/EDTL_dashboard.html',dados)
+
+@login_required(login_url="/login/")
+def dashboard_municipio(request):
+    municipio = Municipio.objects.all()
+    dados ={'municipios': municipio}
+    return render(request, 'home/MUNI_dashboard.html',dados)

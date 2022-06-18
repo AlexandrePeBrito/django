@@ -5,4 +5,7 @@ class NTE(models.Model):
     nome_direitor_NTE = models.CharField(max_length=100)
     telefone_NTE = models.CharField(max_length=13)
     email_NTE = models.CharField(max_length=100)
+    def __str__(self):
+        return str(self.id_NTE)
+
 
