@@ -1,0 +1,85 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Sede {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ Padrao do HEADER da pagina] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Sede</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'dashboard_sede' %}">DashBoard</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'criar_sede' %}">Criar Sede</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [  Padrao do HEADER da pagina ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Hello card</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="{% url 'criar_sede' %}" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group" >
+                                            <label>Nome da Sede</label>
+                                            <input type="text" class="form-control" name="nome_sede" placeholder="Nome da Sede">
+
+                                            <label>Codigo do Inep</label>
+                                            <input type="text" class="form-control" name="codigo_inep_sede" placeholder="Codigo do Inep">
+
+                                            <label>Telefone</label>
+                                            <input type="text" class="form-control" name="telefone_sede" placeholder="Telefone">
+
+                                            <label>Nome do Responsavel</label>
+                                            <input type="text" class="form-control" name="nome_responsavel_sede" placeholder="Nome do Responsavel">
+
+                                            <label>Bairro</label>
+                                            <input type="text" class="form-control" name="bairro_sede" placeholder="Bairro">
+
+                                            <label>Email</label>
+                                            <input type="text" class="form-control" name="email_sede" placeholder="Email">
+
+                                            <label>Municipio</label>
+                                            <input type="text" class="form-control" name="id_municipio_sede" placeholder="Municipio">
+                                            
+                                            <label>NTE</label>
+                                            <input type="text" class="form-control" name="id_nte_sede" placeholder="Codigo do NTE">
+                                        </div>
+                                        <div  class="form-group"></div>
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+

@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Edital {% endblock %} 
+{% block title %} Sede {% endblock %} 
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -33,42 +33,48 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Edital</h5>
+                                    <h5>Sede</h5>
                                 </div>
                                 <div class="card-body">
                                     <div>
-                                        <a href="{% url 'criar_edital' %}" type="button" class="btn btn-success" style="margin-left: 85%;">+ Criar Edital</a>
+                                        <a href="{% url 'criar_sede' %}" type="button" class="btn btn-success" style="margin-left: 85%;">+ Criar Sede</a>
                                     </div>
-                                    <form action="{% url 'consultar_edital' %}" enctype="multipart/form-data">
+                                    <form action="{% url 'consultar_sede' %}" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <label for="nome">Consultar</label>
-                                            <input type="text" class="form-control" name="buscar_edital" placeholder="Numero do Edital">
+                                            <input type="text" class="form-control" name="buscar_sede" placeholder="Nome do sede">
+                                            
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="buscar_programa" placeholder="Programa">
+                                        <div>
+                                            <input type="text" class="form-control" name="buscar_bairro" placeholder="Bairro">
                                         </div>
+                                        <div>
+                                            <input type="text" class="form-control" name="buscar_municipio" placeholder="Municipio">
+                                        </div>   
                                         <button type="submit" class="btn btn-primary" style="margin-top: 10px; margin-left: 45%;">Consultar</button>
                                     </form>
 
-                                    {% if editais %}
+                                    {% if sedes %}
                                     <div class="card-block table-border-style">
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Codigo</th>
-                                                        <th>Quantidades de Vagas</th>
-                                                        <th>Programa</th>
+                                                        <th>ID</th>
+                                                        <th>Nome da Sede</th>
+                                                        <th>Bairro</th>
+                                                        <th>Municipio</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {% for edital in editais%}
+                                                    {% for sede in sedes%}
                                                     <tr>
-                                                        <td>{{ edital.id_edital }}</td>
-                                                        <td>{{ edital.quantidade_vagas_edital }}</td>
-                                                        <td>{{ edital.id_programa_edital }}</td>
-                                                        <td><a href="{% url 'editar_edital' edital.id_edital %}" type="button" class="btn btn-success" style="margin-top: 10px; margin-left: 45%;">Editar</a></td>
+                                                        <td>{{ sede.id_sede }}</td>
+                                                        <td>{{ sede.nome_sede }}</td>
+                                                        <td>{{ sede.bairro_sede }}</td>
+                                                        <td>{{ sede.id_municipio_sede }}</td>
+                                                        <td><a href="{% url 'editar_sede' sede.id_sede %}" type="button" class="btn btn-success" style="margin-top: 10px; margin-left: 45%;">Editar</a></td>
                                                     </tr>
                                                     {% endfor %}
                                                 </tbody>
@@ -77,7 +83,7 @@
                                     </div>
                                     {% else %}
                                     <div class="card-body">
-                                        <h2>Edital Nao Encontrado!</h2>
+                                        <h2>Sede Nao Encontrado!</h2>
                                     </div>
                                     {% endif %}
                                 </div>

@@ -17,6 +17,7 @@ from sistemaSec.programa.models import Programa
 from sistemaSec.faculdade.models import Faculdade
 from sistemaSec.edital.models import Edital
 from sistemaSec.municipio.models import Municipio
+from sistemaSec.sede.models import Sede
 
 @login_required(login_url="/login/")
 def index(request):
@@ -104,3 +105,9 @@ def dashboard_municipio(request):
     municipio = Municipio.objects.all()
     dados ={'municipios': municipio}
     return render(request, 'home/MUNI_dashboard.html',dados)
+
+@login_required(login_url="/login/")
+def dashboard_sede(request):
+    sede = Sede.objects.all()
+    dados ={'sedes': sede}
+    return render(request, 'home/SEDE_dashboard.html',dados)

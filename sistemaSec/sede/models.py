@@ -14,3 +14,4 @@ class Sede(models.Model):
     id_nte_sede = models.ForeignKey(NTE, on_delete=models.PROTECT, related_name="sedes")
     id_municipio_sede = models.ForeignKey(Municipio, on_delete=models.PROTECT, related_name="sedes")
 
+

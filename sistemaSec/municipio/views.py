@@ -28,8 +28,8 @@ def consultar_municipio(request):
         municipio_consulta=request.GET['buscar_municipio']
         nte_consulta=request.GET['buscar_nte']
         if consultar_municipio:
-            lista_por_municipio = muncipio.filter(Q(nome_municipio__icontains=municipio_consulta))
-            listar_por_nte = lista_por_municipio.filter(Q(id_nte_municipio__id_NTE__icontains=nte_consulta))
+            lista_por_municipio = muncipio.filter(Q(nome_municipio__icontains = municipio_consulta))
+            listar_por_nte = lista_por_municipio.filter(Q(id_nte_municipio__id_NTE__icontains = nte_consulta))
     
     dados = {"municipios": listar_por_nte}
     return render(request,"home/MUNI_buscar_municipio.html",dados)
