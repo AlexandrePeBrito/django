@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from sistemaSec.supervisor.models import Supervisor
+from sistemaSec.sede.models import Sede
 
 @login_required(login_url="/login/")
 def criar_supervisor(request):
@@ -12,9 +13,12 @@ def criar_supervisor(request):
         email = request.POST['email']
         telefone = request.POST['telefone']
         
+        sede_supervisor = request.POST['sede_supervisor']
+        sede = Sede.objects.get(id_sede = sede_supervisor)
         supervisor = Supervisor.objects.create(nome_supervisor = nome_supervisor,
             email_supervisor = email, telefone_supervisor = telefone)
         
+        supervisor.sede_supervisor.add(sede)
         supervisor.save()
         return redirect("/")
     else:
@@ -37,7 +41,10 @@ def consultar_supervisor(request):
 @login_required(login_url="/login/")    
 def editar_supervisor(request,id_supervisor):
     supervisor = get_object_or_404(Supervisor, pk=id_supervisor)
-    editar_supervisor = { 'supervisor':supervisor }
+    sede = supervisor.sede_supervisor.all()
+
+    editar_supervisor = { 'supervisor':supervisor,
+                          'sede': sede }
     return render(request, 'home/SUPE_editar_supervisor.html', editar_supervisor)
 
 @login_required(login_url="/login/")
@@ -48,6 +55,10 @@ def atualizar_supervisor(request):
         sup.nome_supervisor = request.POST['nome_supervisor']
         sup.email_supervisor = request.POST['email']
         sup.telefone_supervisor = request.POST['telefone']
+
+        sede_supervisor = request.POST['sede_supervisor']
+        sede = Sede.objects.get(id_sede = sede_supervisor)
+        sup.sede_supervisor.add(sede)
         sup.save()
 
         supervisores = Supervisor.objects.all()

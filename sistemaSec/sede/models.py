@@ -13,5 +13,7 @@ class Sede(models.Model):
     #foreign key
     id_nte_sede = models.ForeignKey(NTE, on_delete=models.PROTECT, related_name="sedes")
     id_municipio_sede = models.ForeignKey(Municipio, on_delete=models.PROTECT, related_name="sedes")
+    def __str__(self):
+        return self.nome_sede
 
 
