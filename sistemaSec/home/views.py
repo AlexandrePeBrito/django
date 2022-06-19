@@ -18,6 +18,7 @@ from sistemaSec.faculdade.models import Faculdade
 from sistemaSec.edital.models import Edital
 from sistemaSec.municipio.models import Municipio
 from sistemaSec.sede.models import Sede
+from sistemaSec.estagio.models import Estagio
 
 @login_required(login_url="/login/")
 def index(request):
@@ -111,3 +112,10 @@ def dashboard_sede(request):
     sede = Sede.objects.all()
     dados ={'sedes': sede}
     return render(request, 'home/SEDE_dashboard.html',dados)
+
+@login_required(login_url="/login/")
+def dashboard_estagio(request):
+    estagio = Estagio.objects.all()
+    dados ={'estagios': estagio}
+    return render(request, 'home/ESTG_dashboard.html',dados)
+

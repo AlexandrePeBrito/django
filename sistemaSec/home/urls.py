@@ -19,6 +19,7 @@ urlpatterns = [
     path('edital/dashboard', views.dashboard_edital, name='dashboard_edital'),
     path('municipio/dashboard', views.dashboard_municipio, name='dashboard_municipio'),
     path('sede/dashboard', views.dashboard_sede, name='dashboard_sede'),
+    path('estagio/dashboard', views.dashboard_estagio, name='dashboard_estagio'),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 ]

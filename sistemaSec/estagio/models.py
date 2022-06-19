@@ -9,5 +9,4 @@ class Estagio(models.Model):
     area_estagio = models.CharField(max_length=200)
     #foreign key
     id_edital_estagio = models.ForeignKey(Edital, on_delete=models.PROTECT, related_name="estagios")
-    id_programa_estagio = models.ForeignKey(Programa, on_delete=models.PROTECT, related_name="estagios")
     id_cursos_estagio = models.ForeignKey(Curso, on_delete=models.PROTECT, related_name="estagios")

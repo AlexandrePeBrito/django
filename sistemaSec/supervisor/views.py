@@ -26,7 +26,7 @@ def criar_supervisor(request):
 
 @login_required(login_url="/login/")
 def consultar_supervisor(request):
-    
+    lista_por_nome = None
     supervisores = Supervisor.objects.all()
     
     if 'buscar_supervisor' in request.GET:

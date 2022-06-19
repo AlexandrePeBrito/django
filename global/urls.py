@@ -19,5 +19,6 @@ urlpatterns = [
     path("", include("sistemaSec.edital.urls")),
     path("", include("sistemaSec.municipio.urls")),
     path("", include("sistemaSec.sede.urls")),
+    path("", include("sistemaSec.estagio.urls")),
     path("", include("sistemaSec.home.urls"))            # UI Kits Html files
 ]

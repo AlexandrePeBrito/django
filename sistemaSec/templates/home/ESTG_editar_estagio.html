@@ -1,0 +1,76 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Estagio {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ Padrao do HEADER da pagina] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Estagio</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'dashboard_estagio' %}">DashBoard</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'editar_estagio' estagio.id_estagio %}">Editar Estagio</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [  Padrao do HEADER da pagina ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Hello card</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="{% url 'atualizar_estagio' %}" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group" >
+                                            <label>ID</label>
+                                            <input type="int" class="form-control" name="id_estagio" placeholder="ID" value="{{estagio.id_estagio}}">
+                                            
+                                            <label>Carga Horaria</label>
+                                            <input type="text" class="form-control" name="carga_horaria_estagio" placeholder="Carga Horaria" value="{{estagio.carga_horaria_estagio}}">
+
+                                            <label>Area</label>
+                                            <input type="text" class="form-control" name="area_estagio" placeholder="Area" value="{{estagio.area_estagio}}">
+                                            
+                                            <label>Edital</label>
+                                            <input type="text" class="form-control" name="id_edital_estagio" placeholder="Edital" value="{{estagio.id_edital_estagio}}">
+                                            
+                                            <label>Curso</label>
+                                            <input type="text" class="form-control" name="id_cursos_estagio" placeholder="Cuso" value="{{estagio.id_cursos_estagio}}">
+                                        </div>
+                                        <div  class="form-group"></div>
+                                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+
