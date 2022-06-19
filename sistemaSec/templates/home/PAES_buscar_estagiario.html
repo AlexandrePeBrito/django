@@ -67,7 +67,11 @@
                                                         <th>CPF</th>
                                                         <th>Nome</th>
                                                         <th>Situaçao</th>
+                                                        <th>Turno</th>
+                                                        <th>Bairro</th>
                                                         <th>Supervisor</th>
+                                                        <th>Sede</th>
+                                                        <th>Faculdade</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -76,7 +80,11 @@
                                                         <td>{{ estagiario.cpf_estagiario }}</td>
                                                         <td>{{ estagiario.nome_estagiario }}</td>
                                                         <td>{{ estagiario.situacao_estagiario }}</td>
+                                                        <td>{{ estagiario.turno_estagiario }}</td>
+                                                        <td>{{ estagiario.bairro_estagiario }}</td>
                                                         <td>{{ estagiario.supervisor_estagiario }}</td>
+                                                        <td>{{ estagiario.sede_estagiario }}</td>
+                                                        <td>{{ estagiario.faculdade_estagiario }}</td>
                                                         <td><a href="{% url 'editar_estagiario_partiu_estagio' estagiario.cpf_estagiario %}" type="button" class="btn btn-success" style="margin-top: 10px; margin-left: 45%;">Editar</a></td>
                                                     </tr>
                                                     {% endfor %}

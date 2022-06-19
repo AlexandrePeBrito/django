@@ -5,6 +5,9 @@ Copyright (c) 2019 - present AppSeed.us
 from django.db import models
 from django.contrib.auth.models import User
 from ..supervisor.models import Supervisor
+from ..estagio.models import Estagio
+from ..faculdade.models import Faculdade
+from ..sede.models import Sede
 
 class Estagiario(models.Model):
     cpf_estagiario = models.CharField(primary_key=True, max_length=11)
@@ -25,7 +28,10 @@ class Estagiario(models.Model):
     matricula_estagiario = models.CharField(max_length=20)
     situacao_estagiario = models.CharField(max_length=200)
     #FOREIGN KEY
-    supervisor_estagiario = models.ForeignKey(Supervisor, on_delete=models.CASCADE, related_name="estagiarios", null = True)
+    supervisor_estagiario = models.ForeignKey(Supervisor, on_delete=models.CASCADE, related_name="supervisor", null = True)
+    sede_estagiario = models.ForeignKey(Sede, on_delete=models.PROTECT, related_name="sede", null = True)
+    faculdade_estagiario = models.ForeignKey(Faculdade, on_delete=models.PROTECT, related_name="faculdade", null = True)
+    estagio_estagiario = models.ForeignKey(Estagio, on_delete=models.PROTECT, related_name="estagio", null = True)
     
     def __str__(self):
         return self.nome_estagiario
