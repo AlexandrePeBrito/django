@@ -4,13 +4,14 @@ Copyright (c) 2019 - present AppSeed.us
 
 from django.db import models
 from django.contrib.auth.models import User
+from cpf_field.models import CPFField
 from ..supervisor.models import Supervisor
 from ..estagio.models import Estagio
 from ..faculdade.models import Faculdade
 from ..sede.models import Sede
 
 class Estagiario(models.Model):
-    cpf_estagiario = models.CharField(primary_key=True, max_length=11)
+    cpf_estagiario = CPFField(primary_key=True)
     nome_estagiario = models.CharField(max_length=200)
     rg_estagiario = models.CharField(max_length=11)
     turno_estagiario = models.CharField(max_length=25)
